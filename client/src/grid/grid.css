@@ -1,0 +1,28 @@
+.grid{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+}
+
+.grid > * {
+    width: 100%;
+}
+
+.grid > *:hover {
+  transform: scale(1.25);
+  transition: 0.3s ease;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* .grid > *{
+    animation: pepega infinite 20s linear;
+  } */
+}
+
+@keyframes pepega {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }

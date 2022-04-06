@@ -1,0 +1,21 @@
+.search-bar-container{
+    width: 100%;
+    
+    padding: 10px;
+}
+
+.search-bar{
+    border: none;
+    outline: none;
+
+    width: 100%;
+
+    font-size: 14px;
+
+    background-color: #fefefe;
+    color: #1a1a1a;
+
+    padding: 5px 0;
+
+    text-indent: 5px;
+}
