@@ -1,27 +1,22 @@
 const { gql } = require('apollo-server')
 const typeDefs = gql`
     type Champion{
-        id: ID
+        id: String
         name: String
         title: String
-        image: Image
+        image: String
         tags: String
-    }
-
-    type Image{
-        full: String
-        sprite: String
     }
 
     type Query{
         getChampions: [Champion]
-        getChampion(id: ID!): Champion
+        getChampion(id: String!): Champion
     }
 
     type Mutation{
-        addChampion(id: ID!): MasterListUpdate
-        updateChampion(id: ID!): MasterListUpdate
-        deleteChampion(id: ID!): MasterListUpdate
+        addChampion(id: String!): MasterListUpdate
+        updateChampion(id: String!): MasterListUpdate
+        deleteChampion(id: String!): MasterListUpdate
     }
 
     type MasterListUpdate{

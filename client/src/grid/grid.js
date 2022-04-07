@@ -1,11 +1,14 @@
 import './grid.css'
 
 function Grid(props){
+    const mappedSrc = props.list.map((data, index) =>{
+        return(
+            <img key={index} src={data} alt={data}/>
+        )
+    })
     return(
         <div className='grid'>
-            { props.list.map((data) => (
-                <img key={data} src={data} alt={data}/>
-            ))}
+            { mappedSrc }
         </div>
     )
 }

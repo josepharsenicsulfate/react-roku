@@ -1,11 +1,11 @@
 import './search-bar.css'
 
 function SearchBar(props){
+    const item = props.value
     return(
         <div className='search-bar-container'>
-            <input key={props.value} className='search-bar' type='text' placeholder={props.value} />
+            <input className='search-bar' type='text' placeholder={item} />
         </div>
-        
     )
 }
 
