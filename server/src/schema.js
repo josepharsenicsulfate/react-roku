@@ -6,12 +6,26 @@ const typeDefs = gql`
         title: String
         image: Image
         tags: [String]
+        lore: String
+        spellset: [Spell]
+        passive: Passive
     }
 
     type Image{
         full: String
         sprite: String
     }
+
+    type Spell{
+        name: String
+        description: String
+    }
+
+    type Passive{
+        name: String
+        description: String
+    }
+
     type Query{
         getChampions: [Champion]
         getChampion(id: String!): Champion

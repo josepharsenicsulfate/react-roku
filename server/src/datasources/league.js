@@ -19,7 +19,10 @@ class LeagueAPI extends RESTDataSource {
             name: champion.name,
             title: champion.title,
             image: champion.image,
-            tags: champion.tags
+            tags: champion.tags,
+            lore: champion.lore,
+            spellset: champion.spells,
+            passive: champion.passive
         }
     }
 
