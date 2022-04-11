@@ -24,8 +24,9 @@ class LeagueAPI extends RESTDataSource {
     }
 
     async getChampionById({championId}){
-        const response = await this.get('/12.6.1/data/en_US/champion.json', { id: championId})
-        return this.resFilter(response[0])
+        const response = await this.get('/12.6.1/data/en_US/champion/'+championId+'.json')
+        const champ = Object.values(response.data)
+        return this.resFilter(champ[0])
     }
 
     getChampionsByIds({championIds}){

@@ -4,10 +4,14 @@ const typeDefs = gql`
         id: String
         name: String
         title: String
-        image: String
-        tags: String
+        image: Image
+        tags: [String]
     }
 
+    type Image{
+        full: String
+        sprite: String
+    }
     type Query{
         getChampions: [Champion]
         getChampion(id: String!): Champion

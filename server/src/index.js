@@ -12,6 +12,5 @@ const server = new ApolloServer({
 })
 
 server.listen().then(() => {
-    console.log(`Server is running!
-                    Listening on port 4000`)
+    console.log(`Server is running! Listening on port 4000`)
 })
