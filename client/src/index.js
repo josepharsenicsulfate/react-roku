@@ -1,17 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { ApolloClient, ApolloProvider } from '@apollo/client'
+import { cache } from './cache'
 
-import './index.css';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+
+import './index.css'
 
 import Content from './content/content'
 
-import reportWebVitals from './reportWebVitals';
+import reportWebVitals from './reportWebVitals'
+
+const client = new ApolloClient({
+  cache,
+  uri: 'http://localhost:4000/graphql'
+})
 
 ReactDOM
   .createRoot(document.getElementById('root'))
   .render(
-    <React.StrictMode>
-      <Content />
-    </React.StrictMode>
+    <ApolloProvider client={client}>
+      <React.StrictMode>
+        <Content />
+      </React.StrictMode>
+    </ApolloProvider>
   )
-reportWebVitals();
+reportWebVitals()

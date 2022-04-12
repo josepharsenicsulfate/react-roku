@@ -4,6 +4,8 @@ import Info from '../info/info'
 import SearchBar from '../search-bar/search-bar'
 import Button from '../button/button'
 
+import { gql } from '@apollo/client'
+
 import './content.css'
 
 const BASE_URL = 'http://ddragon.leagueoflegends.com/cdn'
@@ -17,13 +19,13 @@ const SPLASH_URL = BASE_URL+'/img/champion/splash/'
 fetch(DATA_URL)
 .then(res => res.json())
 .then(res => {
-    const deets = Object.values(res.data)
-    console.log(deets)
-    console.log(deets[70].id)
-    console.log(deets[70].name)
-    console.log(deets[70].title)
-    console.log(deets[70].image)
-    console.log(deets[70].tags)
+    // const deets = Object.values(res.data)
+    // console.log(deets)
+    // console.log(deets[70].id)
+    // console.log(deets[70].name)
+    // console.log(deets[70].title)
+    // console.log(deets[70].image)
+    // console.log(deets[70].tags)
 })
 
 let list = [
@@ -49,6 +51,10 @@ let info = {
     bio: "A prodigy from the rough streets of Zaun, Ekko manipulates time to twist any situation to his advantage. Using his own invention, the Zero Drive, he explores the branching possibilities of reality to craft the perfect moment. Though he revels in this freedom, when there's a threat to his friends he'll do anything to defend them. To outsiders, Ekko seems to achieve the impossible the first time, every time.",
     abilities: ['Time Winder', 'Parallel Convergence', 'Phase Dive', 'Chronobreak']
 }
+
+export const CHAMP_DATA = gql`
+
+`
 
 function Content(){
     return(
