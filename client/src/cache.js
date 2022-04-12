@@ -7,16 +7,16 @@ export const cache = new InMemoryCache({
                 getChampions: {
                     keyArgs: false,
                     merge(existing, incoming) {
-                        let launches = []
-                        if(existing && existing.launches) {
-                            launches = launches.concat(existing.launches)
+                        let getChampions = []
+                        if(existing && existing.getChampions) {
+                            getChampions = getChampions.concat(existing.getChampions)
                         }
-                        if(incoming && incoming.launches) {
-                            launches = launches.concat(incoming.launches)
+                        if(incoming && incoming.getChampions) {
+                            getChampions = getChampions.concat(incoming.getChampions)
                         }
                         return{
                             ...incoming,
-                            launches
+                            getChampions
                         }
                     }
                 }

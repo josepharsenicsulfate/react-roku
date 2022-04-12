@@ -4,7 +4,7 @@ import Info from '../info/info'
 import SearchBar from '../search-bar/search-bar'
 import Button from '../button/button'
 
-import { gql } from '@apollo/client'
+import { gql, useQuery } from '@apollo/client'
 
 import './content.css'
 
@@ -41,34 +41,39 @@ let list = [
     BASE_URL+IMG_SQUARE+'Caitlyn.png',
     BASE_URL+IMG_SQUARE+'Renata.png',
     BASE_URL+IMG_SQUARE+'Zac.png',
-    BASE_URL+IMG_SQUARE+'Heimerdinger.png',
+    BASE_URL+IMG_SQUARE+'Heimerdinger.png'
 ]
 
-let info = {
-    splash: SPLASH_URL+'Ekko_0.jpg',
-    name: 'Ekko',
-    title: 'the Boy Who Shattered Time',
-    bio: "A prodigy from the rough streets of Zaun, Ekko manipulates time to twist any situation to his advantage. Using his own invention, the Zero Drive, he explores the branching possibilities of reality to craft the perfect moment. Though he revels in this freedom, when there's a threat to his friends he'll do anything to defend them. To outsiders, Ekko seems to achieve the impossible the first time, every time.",
-    abilities: ['Time Winder', 'Parallel Convergence', 'Phase Dive', 'Chronobreak']
-}
-
-export const CHAMP_DATA = gql`
-
+export const GET_CHAMPS = gql`
+    query GetChampions {
+        getChampions {
+            id
+            title
+            name
+            tags
+        }
+    } 
 `
 
 function Content(){
+    const {data, loading, error} = useQuery(GET_CHAMPS)
+    console.log(data)
+
+    if(loading) return 'Loading...'
+    if(error) return `Error ${error.message}`
+
     return(
         <div className="content">
             <Grid list={list} />
             <Container children={
                 [
-                    <SearchBar value='Search'/>,
-                    <Button value='Add'/>,
-                    <Button value='Update'/>,
-                    <Button value='Delete'/>,
-                    <Info props={info}/>
+                    <SearchBar key='1' value='Search' />,
+                    <Button key='2' value='Add' />,
+                    <Button key='3' value='Update' />,
+                    <Button key='4' value='Delete' />,
+                    <Info key='5' props={data.getChampions[78]} />
                 ]
-            }/>
+            } />
         </div>
     )
 }
