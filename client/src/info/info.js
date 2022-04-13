@@ -13,7 +13,6 @@ function Info({props}){
             <p className='tags'>{props.tags}</p>
         </div>
     )
-
 }
 
 export default Info
