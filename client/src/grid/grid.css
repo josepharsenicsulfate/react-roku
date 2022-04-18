@@ -12,6 +12,12 @@
   transition: 0.3s ease;
 }
 
+@media screen and (min-width: 1024px){
+  .grid{
+    grid-template-columns: repeat(8,1fr);
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   /* .grid > *{
     animation: pepega infinite 20s linear;

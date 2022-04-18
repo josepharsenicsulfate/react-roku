@@ -9,7 +9,7 @@ const server = new ApolloServer({
     typeDefs,
     resolvers,
     dataSources: () => ({
-        leagueAPI: new LeagueAPI(),
+        leagueAPI: new LeagueAPI()
     }) 
 })
 

@@ -1,6 +1,9 @@
 .info{
     display: grid;
     min-height: 150px;
+
+    justify-items: center;
+    align-items: center;
 }
 
 .info img{
@@ -10,4 +13,23 @@
 .info h1,h2,h3,h4,h5,h6{
     padding: 0;
     margin: 0;
+}
+
+.info ul{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    padding: 0;
+}
+
+.info ul li{
+    list-style: none;
+    font-size: 12px;
+    text-align: center;
+}
+
+@media screen and (min-width: 1024px){
+    .info img{
+        width: 70%;
+    }
 }

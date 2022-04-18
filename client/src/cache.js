@@ -21,18 +21,18 @@ export const cache = new InMemoryCache({
                     }
                 },
                 getChampion: {
-                    keyArgs: false,
+                    keyArgs: true,
                     merge(existing, incoming) {
-                        let getChampions = []
-                        if(existing && existing.getChampions) {
-                            getChampions = getChampions.concat(existing.getChampions)
+                        let getChampion = []
+                        if(existing && existing.getChampion) {
+                            getChampion = getChampion.concat(existing.getChampion)
                         }
-                        if(incoming && incoming.getChampions) {
-                            getChampions = getChampions.concat(incoming.getChampions)
+                        if(incoming && incoming.getChampion) {
+                            getChampion = getChampion.concat(incoming.getChampion)
                         }
                         return{
                             ...incoming,
-                            getChampions
+                            getChampion
                         }
                     }
                 }

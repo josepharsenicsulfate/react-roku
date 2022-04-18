@@ -10,23 +10,11 @@ import './content.css'
 
 const BASE_URL = 'http://ddragon.leagueoflegends.com/cdn'
 
-const DATA_URL = BASE_URL+'/12.6.1/data/en_US/champion.json'
+// const DATA_URL = BASE_URL+'/12.6.1/data/en_US/champion.json'
 
 const IMG_SQUARE = '/12.6.1/img/champion/'
 
-const SPLASH_URL = BASE_URL+'/img/champion/splash/'
-
-// fetch(DATA_URL)
-// .then(res => res.json())
-// .then(res => {
-//     // const deets = Object.values(res.data)
-//     // console.log(deets)
-//     // console.log(deets[70].id)
-//     // console.log(deets[70].name)
-//     // console.log(deets[70].title)
-//     // console.log(deets[70].image)
-//     // console.log(deets[70].tags)
-// })
+// const SPLASH_URL = BASE_URL+'/img/champion/splash/'
 
 let list = [
     BASE_URL+IMG_SQUARE+'Vi.png',
@@ -51,12 +39,15 @@ export const GET_CHAMPS = gql`
             title
             name
             tags
+            image{
+                full
+            }
         }
     } 
 `
 
 export const GET_SPEC_CHAMP = gql`
-    query GetChampions($getChampionId: String!) {
+    query GetChampion($getChampionId: String!) {
         getChampion(id: $getChampionId) {
             id
             name
@@ -76,11 +67,8 @@ export const GET_SPEC_CHAMP = gql`
 `
 
 function Content(){
-    // const {data, loading, error} = useQuery(GET_CHAMPS)
-
-    // const id = 'Aatrox'
     const {data, loading, error} = useQuery(GET_SPEC_CHAMP, { 
-        variables: "Aatrox"
+        variables: { getChampionId: 'Nocturne' }
     })
 
     console.log(data)
@@ -97,7 +85,7 @@ function Content(){
                     <Button key='2' value='Add' />,
                     <Button key='3' value='Update' />,
                     <Button key='4' value='Delete' />,
-                    <Info key='5' props={data} />
+                    <Info key='5' props={data.getChampion} />
                 ]
             } />
         </div>
