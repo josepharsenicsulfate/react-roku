@@ -10,11 +10,7 @@ import './content.css'
 
 const BASE_URL = 'http://ddragon.leagueoflegends.com/cdn'
 
-// const DATA_URL = BASE_URL+'/12.6.1/data/en_US/champion.json'
-
 const IMG_SQUARE = '/12.6.1/img/champion/'
-
-// const SPLASH_URL = BASE_URL+'/img/champion/splash/'
 
 let list = [
     BASE_URL+IMG_SQUARE+'Vi.png',
@@ -68,7 +64,7 @@ export const GET_SPEC_CHAMP = gql`
 
 function Content(){
     const {data, loading, error} = useQuery(GET_SPEC_CHAMP, { 
-        variables: { getChampionId: 'Nocturne' }
+        variables: { getChampionId: 'Sett' }
     })
 
     console.log(data)

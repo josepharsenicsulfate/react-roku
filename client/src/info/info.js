@@ -2,6 +2,8 @@ import './info.css'
 
 function Info({props}){
     let src = 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+props.id+'_0.jpg'
+    let passive = 'http://ddragon.leagueoflegends.com/cdn/12.7.1/img/passive/'+props.id+'.png'
+    let spell = 'https://ddragon.leagueoflegends.com/cdn/12.7.1/img/spell/'+props.id+'.png'
 
     let list = []
 
