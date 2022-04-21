@@ -2,16 +2,8 @@ import './info.css'
 
 function Info({props}){
     let src = 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+props.id+'_0.jpg'
-    let passive = 'http://ddragon.leagueoflegends.com/cdn/12.7.1/img/passive/'+props.id+'.png'
-    let spell = 'https://ddragon.leagueoflegends.com/cdn/12.7.1/img/spell/'+props.id+'.png'
-
-    let list = []
-
-    props.spellset.map((data) => {
-        list.push(data.name)
-    })
-
-    console.log(list)
+    let passive = 'http://ddragon.leagueoflegends.com/cdn/12.7.1/img/passive/'
+    let spell = 'https://ddragon.leagueoflegends.com/cdn/12.7.1/img/spell/'
     
     return(
         <div className='info'>
@@ -20,11 +12,11 @@ function Info({props}){
             <h3>{props.title}</h3>
             <p className='tags'>{props.tags}</p>
             <ul>
-                <li>Passive</li>
-                <li>{list[0]}</li>
-                <li>{list[1]}</li>
-                <li>{list[2]}</li>
-                <li>{list[3]}</li>
+                <li><img src={passive+props.passive.image.full} alt='passive' /></li>
+                <li><img src={spell+props.spellset[0].image.full} alt='spell' /></li>
+                <li><img src={spell+props.spellset[1].image.full} alt='spell' /></li>
+                <li><img src={spell+props.spellset[2].image.full} alt='spell' /></li>
+                <li><img src={spell+props.spellset[3].image.full} alt='spell' /></li>
             </ul>
             <p className='bio'>{props.lore}</p>
             

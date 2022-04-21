@@ -13,17 +13,18 @@ const typeDefs = gql`
 
     type Image{
         full: String
-        sprite: String
     }
 
     type Spell{
         name: String
         description: String
+        image: Image
     }
 
     type Passive{
         name: String
         description: String
+        image: Image
     }
 
     type Query{
