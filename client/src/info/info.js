@@ -12,11 +12,19 @@ function Info({props}){
             <h3>{props.title}</h3>
             <p className='tags'>{props.tags}</p>
             <ul>
-                <li><img src={passive+props.passive.image.full} alt='passive' /></li>
-                <li><img src={spell+props.spellset[0].image.full} alt='spell' /></li>
-                <li><img src={spell+props.spellset[1].image.full} alt='spell' /></li>
-                <li><img src={spell+props.spellset[2].image.full} alt='spell' /></li>
-                <li><img src={spell+props.spellset[3].image.full} alt='spell' /></li>
+                <li key={'li-p'}>
+                    <img key='img-p' src={passive+props.passive.image.full} alt='passive-p' />
+                    <p key='desc-p'>{props.passive.name}</p>
+                </li>
+
+                { props.spellset.map((data, index) => {
+                    return(
+                        <li key={'li'+index}>
+                            <img key={'img'+index} src={spell+data.image.full} alt={'spell'+index} />
+                            <p key={'desc'+index}>{data.name}</p>
+                        </li>
+                    )
+                })}
             </ul>
             <p className='bio'>{props.lore}</p>
             

@@ -36,7 +36,7 @@ export const GET_SPEC_CHAMP = gql`
 
 function Content(){
     const {data, loading, error} = useQuery(GET_SPEC_CHAMP, { 
-        variables: { getChampionId: 'Fizz' }
+        variables: { getChampionId: 'Anivia' }
     })
 
     if(loading) return 'Loading...'

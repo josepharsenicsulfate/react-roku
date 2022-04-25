@@ -7,6 +7,7 @@ const IMG_URL = 'http://ddragon.leagueoflegends.com/cdn/12.6.1/img/champion/'
 export const GET_CHAMPS = gql`
     query GetChampions {
         getChampions {
+            id
             image{
                 full
             }
@@ -25,7 +26,7 @@ function Grid(){
         <div className='grid'>
             { data.getChampions.map((data, index) => {
                 return(
-                    <img key={index} src={IMG_URL+data.image.full} alt={data.image.full} />
+                    <img key={index} src={IMG_URL+data.image.full} alt={data.id} />
                 )
             })}
         </div> 
