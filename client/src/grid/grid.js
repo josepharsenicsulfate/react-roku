@@ -24,9 +24,9 @@ function Grid(){
 
     return(
         <div className='grid'>
-            { data.getChampions.map((data, index) => {
+            { data.getChampions.map((data) => {
                 return(
-                    <img key={index} src={IMG_URL+data.image.full} alt={data.id} />
+                    <img key={data.id} src={IMG_URL+data.image.full} alt={data.id} />
                 )
             })}
         </div> 

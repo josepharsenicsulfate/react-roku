@@ -5,8 +5,10 @@ import SearchBar from '../search-bar/search-bar'
 import Button from '../button/button'
 
 import { gql, useQuery } from '@apollo/client'
+import { useState } from 'react'
 
 import './content.css'
+
 
 export const GET_SPEC_CHAMP = gql`
     query GetChampion($getChampionId: String!) {
@@ -35,8 +37,13 @@ export const GET_SPEC_CHAMP = gql`
 `
 
 function Content(){
+    let [ fromChild, setData ] = useState('')
+    let childToParent = (childdata) => {
+        setData(childdata)
+    }
+    
     const {data, loading, error} = useQuery(GET_SPEC_CHAMP, { 
-        variables: { getChampionId: 'Anivia' }
+        variables: { getChampionId: fromChild || 'Aatrox' }
     })
 
     if(loading) return 'Loading...'
@@ -47,7 +54,7 @@ function Content(){
             <Grid />
             <Container children={
                 [
-                    <SearchBar key='1' value='Search' />,
+                    <SearchBar key='1' value='Search' childToParent={childToParent} />,
                     <Button key='2' value='Add' />,
                     <Button key='3' value='Update' />,
                     <Button key='4' value='Delete' />,
