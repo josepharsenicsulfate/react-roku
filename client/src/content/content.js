@@ -37,13 +37,10 @@ export const GET_SPEC_CHAMP = gql`
 `
 
 function Content(){
-    let [ fromChild, setData ] = useState('')
-    let childToParent = (childdata) => {
-        setData(childdata)
-    }
+    let [ champ, setChamp ] = useState('')
     
     const {data, loading, error} = useQuery(GET_SPEC_CHAMP, { 
-        variables: { getChampionId: fromChild || 'Aatrox' }
+        variables: { getChampionId: champ || 'Aatrox' }
     })
 
     if(loading) return 'Loading...'
@@ -51,14 +48,15 @@ function Content(){
 
     return(
         <div className="content">
-            <Grid />
+            <Grid setChamp={ setChamp } />
+            
             <Container children={
                 [
-                    <SearchBar key='1' value='Search' childToParent={childToParent} />,
+                    <SearchBar key='1' value='Search' setChamp={ setChamp } />,
                     <Button key='2' value='Add' />,
                     <Button key='3' value='Update' />,
                     <Button key='4' value='Delete' />,
-                    <Info key='5' props={data.getChampion} />
+                    <Info key='5' props={(data.getChampion) ? data.getChampion : { name: 'not found' }}/>
                 ]
             } />
         </div>
