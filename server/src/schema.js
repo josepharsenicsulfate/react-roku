@@ -2,6 +2,7 @@ const { gql } = require('apollo-server')
 const typeDefs = gql`
     type Champion{
         id: String
+        key: String
         name: String
         title: String
         image: Image

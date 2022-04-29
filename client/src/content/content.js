@@ -2,7 +2,6 @@ import Grid from '../grid/grid'
 import Container from '../container/container'
 import Info from '../info/info'
 import SearchBar from '../search-bar/search-bar'
-import Button from '../button/button'
 
 import { gql, useQuery } from '@apollo/client'
 import { useState } from 'react'
@@ -49,14 +48,14 @@ function Content(){
     return(
         <div className="content">
             <Grid setChamp={ setChamp } />
-            
+
             <Container children={
                 [
-                    <SearchBar key='1' value='Search' setChamp={ setChamp } />,
-                    <Button key='2' value='Add' />,
-                    <Button key='3' value='Update' />,
-                    <Button key='4' value='Delete' />,
-                    <Info key='5' props={(data.getChampion) ? data.getChampion : { name: 'not found' }}/>
+                    <SearchBar key='1' setChamp={ setChamp } />,
+                    // <Button key='2' placeholder='Add' />,
+                    // <Button key='3' placeholder='Update' />,
+                    // <Button key='4' placeholder='Delete' />,
+                    <Info key='5' props={data.getChampion}/>
                 ]
             } />
         </div>

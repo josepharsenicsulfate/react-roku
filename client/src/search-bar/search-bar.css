@@ -22,3 +22,11 @@
 
     text-indent: 5px;
 }
+
+form{
+    display: flex;
+    /* display: none; */
+    flex-wrap: nowrap;
+    width: 100%;
+    gap: 3px;
+}

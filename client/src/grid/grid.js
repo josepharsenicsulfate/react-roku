@@ -23,14 +23,15 @@ function Grid(props){
     if(error) return `Error ${error.message}`
 
     // window.addEventListener('click', (e) =>{
-     
     //     if(e.target.name == "grid-item"){
+    //         console.log(e)
+    //         console.log(e.target)
     //         props.setChamp(e.target.alt)
     //     }
     // })
-    
-    const testni = (event) => {
-        if(event.target.name == "grid-item"){
+
+    const gridListener = (event) => {
+        if(event.target.name === "grid-item"){
             props.setChamp(event.target.alt)
         }
     }
@@ -38,9 +39,8 @@ function Grid(props){
     return(
         <div className='grid'>
             { data.getChampions.map((data) => {
-               
                 return(
-                    <img name="grid-item" key={data.id} src={IMG_URL+data.image.full} alt={data.id} onClick={(event)=>testni(event)} />
+                    <img name="grid-item" key={data.id} src={IMG_URL+data.image.full} alt={data.id} onClick={(event)=>gridListener(event)} />
                 )
             })}
         </div> 

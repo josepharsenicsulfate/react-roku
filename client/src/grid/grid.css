@@ -3,9 +3,10 @@
     grid-template-columns: repeat(5,1fr);
     overflow-y: scroll;
     overflow-x: hidden;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 
+    margin-top: 10%;
     height: 75vh;
 }
 
