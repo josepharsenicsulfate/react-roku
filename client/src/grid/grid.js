@@ -16,19 +16,10 @@ export const GET_CHAMPS = gql`
 `
 
 function Grid(props){
-
     const {data, loading, error} = useQuery(GET_CHAMPS)
 
     if(loading) return 'Loading...'
     if(error) return `Error ${error.message}`
-
-    // window.addEventListener('click', (e) =>{
-    //     if(e.target.name == "grid-item"){
-    //         console.log(e)
-    //         console.log(e.target)
-    //         props.setChamp(e.target.alt)
-    //     }
-    // })
 
     const gridListener = (event) => {
         if(event.target.name === "grid-item"){

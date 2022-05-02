@@ -4,7 +4,6 @@ import './search-bar.css'
 import { useState } from 'react'
 
 function SearchBar(props){
-
     let [ input, setInput ] = useState('')
     let inputListener = (event) => {
         setInput(event.target.value)

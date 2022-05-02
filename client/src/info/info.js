@@ -1,23 +1,58 @@
 import './info.css'
 
-function Info({props}){
-    let src = 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+props.id+'_0.jpg'
+import { gql, useQuery } from '@apollo/client'
+
+export const GET_SPEC_CHAMP = gql`
+    query GetChampion($getChampionId: String!) {
+        getChampion(id: $getChampionId) {
+            id
+            name
+            title
+            tags
+            lore
+            spellset {
+              name
+              description
+              image {
+                  full
+                }
+            }
+            passive {
+              name
+              description
+              image {
+                    full
+                }
+            }
+        }
+    }
+`
+
+function Info(props){
+    const {data, loading, error} = useQuery(GET_SPEC_CHAMP, { 
+        variables: { getChampionId: props.champ || 'Aatrox' }
+    })
+
+    if(loading) return 'Loading...'
+    if(error) return `Error ${error.message}`
+
+    let src = 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+data.getChampion.id+'_0.jpg'
     let passive = 'http://ddragon.leagueoflegends.com/cdn/12.7.1/img/passive/'
     let spell = 'https://ddragon.leagueoflegends.com/cdn/12.7.1/img/spell/'
     
     return(
         <div className='info'>
             <img src={src} alt='' />
-            <h1>{props.name}</h1>
-            <h3>{props.title}</h3>
-            <p className='tags'>{props.tags}</p>
+            <h1>{data.getChampion.name}</h1>
+            <h3>{data.getChampion.title}</h3>
+            <p className='tags'>{data.getChampion.tags}</p>
             <ul>
                 <li key={'li-p'}>
-                    <img key='img-p' src={passive+props.passive.image.full} alt='passive-p' />
-                    <p key='desc-p'>{props.passive.name}</p>
+                    <img key='img-p' src={passive+data.getChampion.passive.image.full} alt='passive-p' />
+                    <p key='desc-p'>{data.getChampion.passive.name}</p>
                 </li>
 
-                { props.spellset.map((data, index) => {
+                { data.getChampion.spellset.map((data, index) => {
                     return(
                         <li key={'li'+index}>
                             <img key={'img'+index} src={spell+data.image.full} alt={'spell'+index} />
@@ -26,7 +61,7 @@ function Info({props}){
                     )
                 })}
             </ul>
-            <p className='bio'>{props.lore}</p>
+            <p className='bio'>{data.getChampion.lore}</p>
             
         </div>
     )
