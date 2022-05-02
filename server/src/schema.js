@@ -2,7 +2,8 @@ const { gql } = require('apollo-server')
 const typeDefs = gql`
     type Champion{
         id: String
-        key: String
+        skins: [Skin]
+        key: Int
         name: String
         title: String
         image: Image
@@ -14,6 +15,12 @@ const typeDefs = gql`
 
     type Image{
         full: String
+    }
+
+    type Skin{
+        id: Int
+        num: Int
+        name: String
     }
 
     type Spell{

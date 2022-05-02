@@ -16,6 +16,8 @@ class LeagueAPI extends RESTDataSource {
     resFilter(champion){
         return{
             id: champion.id || 0,
+            skins: champion.skins,
+            key: champion.key,
             name: champion.name,
             title: champion.title,
             image: champion.image,

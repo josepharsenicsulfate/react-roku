@@ -6,21 +6,25 @@ export const GET_SPEC_CHAMP = gql`
     query GetChampion($getChampionId: String!) {
         getChampion(id: $getChampionId) {
             id
+            skins{
+                id
+                name
+            }
             name
             title
             tags
             lore
             spellset {
-              name
-              description
-              image {
-                  full
+                name
+                description
+                image {
+                    full
                 }
             }
             passive {
-              name
-              description
-              image {
+                name
+                description
+                image {
                     full
                 }
             }
