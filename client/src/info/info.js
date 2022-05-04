@@ -8,6 +8,7 @@ export const GET_SPEC_CHAMP = gql`
             id
             skins{
                 id
+                num
                 name
             }
             name
@@ -38,7 +39,8 @@ function Info(props){
     })
 
     if(loading) return 'Loading...'
-    if(error) return `Error ${error.message}`
+    // if(error) return `Error ${error.message}`
+    if(error) return `No results found`
 
     let src = 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+data.getChampion.id+'_0.jpg'
     let passive = 'http://ddragon.leagueoflegends.com/cdn/12.7.1/img/passive/'
@@ -66,7 +68,6 @@ function Info(props){
                 })}
             </ul>
             <p className='bio'>{data.getChampion.lore}</p>
-            
         </div>
     )
 }

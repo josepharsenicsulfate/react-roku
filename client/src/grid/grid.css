@@ -7,7 +7,7 @@
     justify-content: center;
 
     margin: 10px 0;
-    height: 75vh;
+    height: 30vh;
 }
 
 .grid * {
@@ -18,6 +18,24 @@
 .grid *:hover {
   transform: scale(1.2);
   transition: 0.3s ease;
+}
+@media screen and (min-width: 375px){
+  .grid{
+    grid-template-columns: repeat(6,1fr);
+  }
+}
+
+@media screen and (min-width: 425px){
+  .grid{
+    grid-template-columns: repeat(7,1fr);
+  }
+}
+
+@media screen and (min-width: 768px){
+  .grid{
+    grid-template-columns: repeat(6,1fr);
+    height: 90vh;
+  }
 }
 
 @media screen and (min-width: 1024px){

@@ -11,7 +11,7 @@ function Content(){
     let [ champ, setChamp ] = useState('')
 
     return(
-        <div className="content">
+        <div className="content bg-dark text-light">
             <Grid setChamp={ setChamp } />
             <Container children={[
                 <SearchBar key='1' setChamp={ setChamp } />,

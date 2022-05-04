@@ -4,9 +4,20 @@
     justify-items: center;
     /* align-items: center; */
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
 
     gap: 15px;
 
     padding: 25px;
+}
+
+@media screen and (min-width: 768px){
+    .content{
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+    }
+
+    .content :nth-child(2){
+        align-self: flex-start
+    }
 }
