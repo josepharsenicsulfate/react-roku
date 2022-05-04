@@ -38,6 +38,7 @@ const typeDefs = gql`
     type Query{
         getChampions: [Champion]
         getChampion(id: String!): Champion
+        getChampionTest(key: Int!): Champion
     }
 
     type Mutation{

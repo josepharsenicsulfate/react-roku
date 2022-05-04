@@ -36,6 +36,23 @@ export const cache = new InMemoryCache({
                         }
                     }
                 }
+                ,
+                getChampionTest: {
+                    keyArgs: true,
+                    merge(existing, incoming) {
+                        let getChampionTest = []
+                        if(existing && existing.getChampionTest) {
+                            getChampionTest = getChampionTest.concat(existing.getChampionTest)
+                        }
+                        if(incoming && incoming.getChampionTest) {
+                            getChampionTest = getChampionTest.concat(incoming.getChampionTest)
+                        }
+                        return{
+                            ...incoming,
+                            getChampionTest
+                        }
+                    }
+                }
             }
         }
     }

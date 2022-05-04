@@ -18,7 +18,7 @@ function SearchBar(props){
 }
 
 function filter(input){
-    let pattern = /[A-z4]/g
+    let pattern = /[A-z]/g
     let NOT_NULL = input.match(pattern) 
         ? input.match(pattern).join('').toLowerCase() 
         : ''
@@ -59,14 +59,13 @@ function filter(input){
         ? ret_spec_case[spec_case.indexOf(NOT_NULL,0)] 
         : capitalize(NOT_NULL)
 
-    console.log(chk_spec)
-
     return chk_spec
 }
 
 function capitalize(input){
     let first = input.charAt(0).toUpperCase()
     let rest = input.substring(1,input.length+1)
+
     return first+rest
 }
 
