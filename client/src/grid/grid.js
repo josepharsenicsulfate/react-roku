@@ -8,6 +8,7 @@ export const GET_CHAMPS = gql`
     query GetChampions {
         getChampions {
             id
+            key
             image{
                 full
             }
@@ -31,7 +32,7 @@ function Grid(props){
         <div className='grid'>
             { data.getChampions.map((data) => {
                 return(
-                    <img name="grid-item" key={data.id} src={IMG_URL+data.image.full} alt={data.id} onClick={(event)=>gridListener(event)} />
+                    <img name="grid-item" key={data.key} src={IMG_URL+data.image.full} alt={data.id} onClick={(event)=>gridListener(event)} />
                 )
             })}
         </div> 

@@ -14,11 +14,11 @@ function Content(){
         <div className="content bg-dark text-light">
             <Grid setChamp={ setChamp } />
             <Container children={[
-                <SearchBar key='1' setChamp={ setChamp } />,
+                <SearchBar key='9991' setChamp={ setChamp } />,
                 // <Button key='2' placeholder='Add' />,
                 // <Button key='3' placeholder='Update' />,
                 // <Button key='4' placeholder='Delete' />,
-                <Info key='5' champ={champ} />
+                <Info key='9992' champ={champ} />
             ]} />
         </div>
     )
