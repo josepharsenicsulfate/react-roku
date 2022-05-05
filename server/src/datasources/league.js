@@ -34,18 +34,17 @@ class LeagueAPI extends RESTDataSource {
         return this.resFilter(champ[0])
     }
 
-    async getChampionByIdTest({championKey}){
-        const response = await this.get('/12.6.1/data/en_US/champion.json')
-        const champ = Object.values(response.data)
-        const spec_champ = (championKey) => {
-            champ.forEach(res => {
-                if(res.key == championKey){
-                    return res.id
-                }
-            });
-        }
-        return this.resFilter(spec_champ(championKey))
-    }
+    // async getChampionByIdTest({championKey}){
+    //     const response = await this.get('/12.6.1/data/en_US/champion.json')
+    //     const champ = Object.values(response.data)
+    //     const spec_champ = () => {
+    //             champ.forEach(res => {
+    //                 if(res.key == championKey){
+    //                     return res.id
+    //                 }
+    //             })}
+    //     return this.resFilter()
+    // }
 
     // getChampionsByIds({championIds}){
     //     return Promise.all(
